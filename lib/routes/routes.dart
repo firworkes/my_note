@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import '../pages/Index.dart';
 import '../pages/Login.dart';
 import '../Tabs.dart';
+import '../pages/DargDemo.dart';
 
 final routes= {
   '/' : (context) => Tabs(),
   '/index' : (context) => Index(),
-  '/login' : (context) => Login()
+  '/login' : (context) => Login(),
+  '/DargDemo' : (context) => DargDemo()
 };
 
 //固定写法

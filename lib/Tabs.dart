@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'pages/Index.dart';
 import 'pages/Login.dart';
 import 'res/listData.dart';
+import 'pages/DargDemo.dart';
 
 class Tabs extends StatefulWidget {
   final index;
@@ -22,7 +23,8 @@ class _TabsState extends State<Tabs> {
 
   List _listPage = [
     Index(),
-    Login()
+    Login(),
+    DargDemo(),
   ];
 
   SelectView(IconData icon, String text, String id) {
@@ -112,6 +114,10 @@ class _TabsState extends State<Tabs> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             title: Text('登录')
+          ),
+           BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('拖拽')
           ),
         ],
       ),
