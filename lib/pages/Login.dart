@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+=======
+import '../components/NewDart.dart';
+>>>>>>> 724274668add002ace00f84442b851fd22548a28
 
 
 class Login extends StatefulWidget {
@@ -12,71 +16,45 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          MyDraggableTarget(data:'123'),
-          Divider(),
-          MyDraggableTarget(data:'456')
-        ],
-      ),
+      body: 
+          // GridViewPage()
+          GridViewPage(),
+          // Divider(),
+          // MyDraggableTarget(data:'456')
     );
   }
 }
 
+<<<<<<< HEAD
+=======
 
-class MyDraggableTarget<T> extends StatefulWidget {
-  final T data;
 
-  MyDraggableTarget({@required this.data, Key key}) : super(key: key);
 
-  @override
-  State<StatefulWidget> createState() => _MyDraggableTargetState(text: data);
-}
-
-class _MyDraggableTargetState extends State<MyDraggableTarget> {
-  var text;
-
-  _MyDraggableTargetState({@required this.text});
+class GridViewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Draggable(
-      data: text,
-      child: Container(//仅用于保持样式，可以使用DragTarget作为直接child。
-        width: 150.0,
-        height: 150.0,
-        color: Colors.red[500],
-        child: DragTarget(
-          onWillAccept: (data) {
-            print("data = $data onWillAccept");
-            return data != null;
-          },
-          onAccept: (data) {
-            print("data = $data onAccept");
-            setState(() {
-              text = data;
-            });
-          },
-          onLeave: (data) {
-            print("data = $data onLeave");
-          },
-          builder: (context, candidateData, rejectedData) {
-            return Container(
-              width: 150.0,
-              height: 150.0,
-              color: Colors.blue[500],
-              child: Center(
-                child: Text(text),
-              ),
-            );
-          },
-        ),
-      ),
-      feedback: Container(
-        width: 150.0,
-        height: 150.0,
-        color: Colors.blue[500],
-        child: Icon(Icons.feedback),
-      ),
+    return GridView.count(
+      childAspectRatio: 3.0, //item宽高比
+      scrollDirection: Axis.vertical, //默认vertical
+      crossAxisCount: 2, //列数
+      children: _buildGridChildren(context),
     );
   }
+
+  //生成widget列表
+  List<Widget> _buildGridChildren(BuildContext context) {
+    final List list = List<Widget>();
+    for (int x = 0; x < 12; x++) {
+      list.add(
+        MyDraggableTarget(data: 'x = $x')
+      );
+    }
+    return list;
+  }
 }
+>>>>>>> 724274668add002ace00f84442b851fd22548a28
+
+
+
+
+
